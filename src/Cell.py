@@ -3,14 +3,15 @@ from src.Organelles.Ribosome import Ribosome
 from src.Nucleus.Nucleus import Nucleus
 from src.Membrane import Membrane
 from src.Substance.Glucose import Glucose
+from src.Protein.Protein import Protein
 
 class Cell:
     REPRODUCTION_ENERGY_COST = 20    
-    mitochondria = None
-    ribosome = None
-    nucleus = None
-    membrane = None
-    protein = None
+    mitochondria:Mitochondria = None
+    ribosome:Ribosome = None
+    nucleus:Nucleus = None
+    membrane:Membrane = None
+    protein:Protein = None
 
     _energy = 0
 

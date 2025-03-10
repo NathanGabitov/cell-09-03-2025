@@ -16,9 +16,9 @@ class Ribosome:
             self._cell.nucleus.generateRNA()
             
             if self._cell.nucleus.rna.sequence == "UACAAGCCUUCCGAAUU":
-                self._cell.protein = GlucoseTransporterProtein()
+                self._cell.protein = GlucoseTransporterProtein(self._cell)
             elif self._cell.nucleus.rna.sequence == "UACAAGCCUUCCGAAUC":
-                self._cell.protein = RibosomeAssemblyProtein()
+                self._cell.protein = RibosomeAssemblyProtein(self._cell)
             else:
                 raise ValueError("Incorrect RNA-sequence")
 
