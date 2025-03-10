@@ -1,9 +1,8 @@
-from src.Mitochondria import Mitochondria
-from src.Ribosome import Ribosome
-from src.Nucleus import Nucleus
+from src.Organelles.Mitochondria import Mitochondria
+from src.Organelles.Ribosome import Ribosome
+from src.Nucleus.Nucleus import Nucleus
 from src.Membrane import Membrane
-from src.Protein import Protein
-from src.Glucose import Glucose
+from src.Substance.Glucose import Glucose
 
 class Cell:
     REPRODUCTION_ENERGY_COST = 20    
@@ -11,7 +10,7 @@ class Cell:
     ribosome = None
     nucleus = None
     membrane = None
-    protein: Protein = None
+    protein = None
 
     _energy = 0
 
@@ -24,7 +23,6 @@ class Cell:
 
     def divide(self):
         if (self._energy >= self.REPRODUCTION_ENERGY_COST):
-            # не ок! Нужно возвращать новый объект этого класса. Иначе выбрасывать исключение
             print("divide")
         else:
             print("not enough energy")

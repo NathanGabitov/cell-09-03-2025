@@ -1,7 +1,6 @@
 from src.Cell import Cell
-from typing import Union
-from src.Glucose import Glucose
-from src.Cholesterol import Cholesterol
+from src.Substance.Glucose import Glucose
+from src.Substance.Cholesterol import Cholesterol
 import random
 
 def generateSubstance():
@@ -33,7 +32,6 @@ while cell.getEnergy() < cell.REPRODUCTION_ENERGY_COST:
         countGoodIteration += 1
 
     cell.ribosome.generateProtein()
-
     print("Count energy after generate protein:", cell.getEnergy())
     cell.protein.transportSubstanceInMitochondrion(substance, cell.mitochondria)
     cell.mitochondria.generateEnergy()
