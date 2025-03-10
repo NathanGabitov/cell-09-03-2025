@@ -11,7 +11,7 @@ class Cell:
     ribosome:Ribosome = None
     nucleus:Nucleus = None
     membrane:Membrane = None
-    protein:Protein = None
+    proteins:Protein = None
 
     _energy = 0
 
@@ -20,13 +20,13 @@ class Cell:
         self.mitochondria = Mitochondria(self)
         self.ribosome = Ribosome(self)
         self.nucleus = Nucleus()
-        self.membrane = Membrane([Glucose])
+        self.membrane = Membrane((Glucose))
 
     def divide(self):
         if (self._energy >= self.REPRODUCTION_ENERGY_COST):
-            print("divide")
+            return Cell(self.getEnergy() / 2)
         else:
-            print("not enough energy")
+            raise ValueError("Not enough energy")
 
     def setEnergy(self, value):
         self._energy = value

@@ -12,7 +12,7 @@ class Ribosome:
         self._cell = cell
     
     def generateProtein(self):
-        if (self._cell.getEnergy() > 0):
+        if self._cell.getEnergy() > 0:
             self._cell.nucleus.generateRNA()
             
             if self._cell.nucleus.rna.sequence == "UACAAGCCUUCCGAAUU":
