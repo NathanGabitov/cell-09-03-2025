@@ -13,25 +13,19 @@ def generateSubstance():
     else:
         return Cholesterol()
 
-cells = []
 
-start_time = time.time()
-while time.time() - start_time < 5:
-    cell = Cell(1)
+cell = Cell(1)
 
-    while cell.getEnergy() < cell.REPRODUCTION_ENERGY_COST:
-        start = time.perf_counter()
-        substance = generateSubstance()
+while cell.getEnergy() < cell.REPRODUCTION_ENERGY_COST:
+    start = time.perf_counter()
+    substance = generateSubstance()
 
-        if cell.membrane.validate(substance) == False:
-            continue
+    if cell.membrane.validate(substance) == False:
+        continue
 
-        cell.ribosome.generateProtein()
-        cell.protein.transportSubstanceInMitochondrion(substance)
-        cell.mitochondria.generateEnergy()
-        time.sleep(max(ITERATION_TIME_MS - (time.perf_counter() - start), 0))
+    cell.ribosome.generateProtein()
+    cell.protein.transportSubstanceInMitochondrion(substance)
+    cell.mitochondria.generateEnergy()
+    time.sleep(max(ITERATION_TIME_MS - (time.perf_counter() - start), 0))
 
-        if cell.getEnergy() >= cell.REPRODUCTION_ENERGY_COST:
-            cells.append(cell.divide())
-
-print(len(cells))
+cell.divide()
